@@ -16,7 +16,7 @@ CREATE OR REPLACE TABLE kimia_farma.tabel_analisa AS (
 
 -- Kolom persenase gross laba
 CASE
-WHEN t. price <= 5000 THEN 0.10
+WHEN t. price <= 50000 THEN 0.10
 WHEN t.price > 50000 AND t.price <= 100000 THEN 0.15
 WHEN t.price > 100000 AND t.price <= 300000 THEN 0.20
 WHEN t.price > 300000 AND t.price <= 500000 THEN 0.25
@@ -39,5 +39,6 @@ t. rating AS rating_transaksi,
 
   FROM `rakamin-kf-analytics-476513.kimia_farma.kf_final_transaction` AS t LEFT JOIN `rakamin-kf-analytics-476513.kimia_farma.kf_kantor_cabang` AS c ON t.branch_id = c.branch_id
   LEFT JOIN `rakamin-kf-analytics-476513.kimia_farma.kf_product` AS p ON t.product_id = p.product_id
+
 
  );
